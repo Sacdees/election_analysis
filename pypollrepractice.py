@@ -31,20 +31,27 @@ with open (file_to_load) as election_data:
             candidate_votes[candidate_name] = 0             #begin 
         candidate_votes[candidate_name] += 1                #add a vote to that candidates count (align with if or will only count '1')
 
-print(candidate_votes)                                      #print candidate vote dictionary
+                                    
 
 for candidate_name in candidate_votes:                      #iterate through the candidate votes
     votes = candidate_votes[candidate_name]                 #retrieve vote count of a candidate
     vote_percentage = float(votes)/float(total_votes)*100       #calculate the percenatage of votes
-    print(f"{candidate_name}:recieved {vote_percentage}% of the vote.")         
-
-    #TO DO print name,count,%
-    #votes to the terminal
+       
+    print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")    #TO DO print EACH name,count,% votes to the terminal
+    
     
     if (votes > winning_count) and (vote_percentage > winning_percentage):      #determine if votes is > winning count
         winning_count = votes                                                   #if true then set to next two lines
         winning_percentage = vote_percentage
         winning_candidate = candidate_name                                      #set the winning candidate equal to candidates name 
+
+winning_candidate_summary = (                                                   #TO DO print WINNING candidate, vote, %            
+    f"-------------------------\n"
+    f"Winner: {winning_candidate}\n"
+    f"Winning Vote Count: {winning_count:,}\n"
+    f"Winning Percentage: {winning_percentage:.1f}%\n"
+    f"-------------------------\n")
+print(winning_candidate_summary)                          
 
 
 
