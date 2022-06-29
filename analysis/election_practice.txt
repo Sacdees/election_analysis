@@ -1,0 +1,4 @@
+Hello Bootcamp,
+ Practice make perfect!,
+ We will have to write the codes several times,
+ So we can understand the concepts
